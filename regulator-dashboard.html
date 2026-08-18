@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulator Dashboard | Pashu Aarogya</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <!-- ============ SIDEBAR ============ -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Pashu Aarogya</h2>
+                <span>Regulator Portal</span>
+            </div>
+
+            <nav>
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">AMU Monitoring</a>
+                <a href="#">Compliance</a>
+                <a href="#">Withdrawal Monitoring</a>
+                <a href="#">Alerts</a>
+                <a href="#">Reports</a>
+                <a href="#">Profile</a>
+                <a href="../index.html" class="logout">Logout</a>
+            </nav>
+        </aside>
+
+        <!-- ============ MAIN CONTENT ============ -->
+        <main class="main-content">
+
+            <div class="topbar">
+                <div>
+                    <h1>Regulator Dashboard</h1>
+                    <p>System-wide antimicrobial usage and compliance monitoring</p>
+                </div>
+                <div class="user-chip">
+                    🏛️ Dept. of Animal Husbandry
+                </div>
+            </div>
+
+            <!-- ============ SUMMARY CARDS ============ -->
+            <section class="summary-cards">
+                <div class="summary-card">
+                    <p class="label">Total AMU Records</p>
+                    <p class="value">128</p>
+                </div>
+                <div class="summary-card">
+                    <p class="label">Under Withdrawal</p>
+                    <p class="value amber">17</p>
+                </div>
+                <div class="summary-card">
+                    <p class="label">Compliant</p>
+                    <p class="value green">104</p>
+                </div>
+                <div class="summary-card">
+                    <p class="label">Flagged</p>
+                    <p class="value red">7</p>
+                </div>
+            </section>
+
+            <!-- ============ AMU MONITORING CHART ============ -->
+            <section class="panel">
+                <h2>AMU Monitoring by AWaRe Category</h2>
+                <p class="panel-subtitle">
+                    Sample data shown for layout purposes. Real chart data requires an aggregated stats endpoint from the backend — see note below.
+                </p>
+
+                <div class="bar-chart">
+                    <div class="bar-column">
+                        <span class="bar-value">78</span>
+                        <div class="bar access" style="height: 100%;"></div>
+                        <span class="bar-label">Access</span>
+                    </div>
+                    <div class="bar-column">
+                        <span class="bar-value">38</span>
+                        <div class="bar watch" style="height: 49%;"></div>
+                        <span class="bar-label">Watch</span>
+                    </div>
+                    <div class="bar-column">
+                        <span class="bar-value">12</span>
+                        <div class="bar reserve" style="height: 15%;"></div>
+                        <span class="bar-label">Reserve</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ COMPLIANCE OVERVIEW ============ -->
+            <section class="panel">
+                <h2>Compliance Overview</h2>
+                <p class="panel-subtitle">Recent AMU and compliance records across the system.</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Animal</th>
+                            <th>Drug</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ANIMAL001</td>
+                            <td>Amoxicillin</td>
+                            <td>Access</td>
+                            <td>12 Aug 2026</td>
+                            <td><span class="badge withdrawal">Under Withdrawal</span></td>
+                        </tr>
+                        <tr>
+                            <td>ANIMAL002</td>
+                            <td>Enrofloxacin</td>
+                            <td>Watch</td>
+                            <td>05 Aug 2026</td>
+                            <td><span class="badge compliant">Compliant</span></td>
+                        </tr>
+                        <tr>
+                            <td>ANIMAL003</td>
+                            <td>Colistin</td>
+                            <td>Reserve</td>
+                            <td>02 Aug 2026</td>
+                            <td><span class="badge flagged">Flagged</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

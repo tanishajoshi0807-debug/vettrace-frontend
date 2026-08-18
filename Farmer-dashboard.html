@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Dashboard | Pashu Aarogya</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <!-- ============ SIDEBAR ============ -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Pashu Aarogya</h2>
+                <span>Farmer Portal</span>
+            </div>
+
+            <nav>
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">My Animals</a>
+                <a href="#">Withdrawal</a>
+                <a href="#">Feed AMU</a>
+                <a href="#">Certificates</a>
+                <a href="#">Notifications</a>
+                <a href="#">Profile</a>
+                <a href="../index.html" class="logout">Logout</a>
+            </nav>
+        </aside>
+
+        <!-- ============ MAIN CONTENT ============ -->
+        <main class="main-content">
+
+            <div class="topbar">
+                <div>
+                    <h1>Farmer Dashboard</h1>
+                    <p>Welcome back, Ramesh Kumar</p>
+                </div>
+                <div class="user-chip">
+                    👨‍🌾 Ramesh Kumar
+                </div>
+            </div>
+
+            <!-- ============ SUMMARY CARDS ============ -->
+            <!-- These 4 numbers will come from the backend later. Sample data for now. -->
+            <section class="summary-cards">
+                <div class="summary-card">
+                    <p class="label">Total Animals</p>
+                    <p class="value">12</p>
+                </div>
+                <div class="summary-card">
+                    <p class="label">Active Withdrawal</p>
+                    <p class="value amber">2</p>
+                </div>
+                <div class="summary-card">
+                    <p class="label">Ongoing Treatment</p>
+                    <p class="value amber">3</p>
+                </div>
+                <div class="summary-card">
+                    <p class="label">Compliance Passes</p>
+                    <p class="value green">8</p>
+                </div>
+            </section>
+
+            <!-- ============ ANIMAL STATUS CARDS ============ -->
+            <section class="panel">
+                <h2>My Animals</h2>
+                <p class="panel-subtitle">
+                    Live withdrawal status for your animals. This will refresh automatically once connected to the backend.
+                </p>
+
+                <div class="animal-cards">
+
+                    <!-- Animal 1: Active withdrawal -->
+                    <div class="animal-card">
+                        <div class="animal-card-top">
+                            <div>
+                                <h3>ANIMAL001</h3>
+                                <p class="species">Cow</p>
+                            </div>
+                            <span class="badge withdrawal">Withdrawal Active</span>
+                        </div>
+
+                        <div class="detail-row">
+                            <span>Drug</span>
+                            <span>Amoxicillin</span>
+                        </div>
+
+                        <div class="countdown">01 : 42 : 30</div>
+
+                        <div class="progress-bar-track">
+                            <div class="progress-bar-fill" style="width: 67%;"></div>
+                        </div>
+                        <p class="progress-label">67% complete</p>
+                    </div>
+
+                    <!-- Animal 2: Compliant / withdrawal complete -->
+                    <div class="animal-card">
+                        <div class="animal-card-top">
+                            <div>
+                                <h3>ANIMAL002</h3>
+                                <p class="species">Buffalo</p>
+                            </div>
+                            <span class="badge compliant">Compliant</span>
+                        </div>
+
+                        <div class="detail-row">
+                            <span>Drug</span>
+                            <span>Enrofloxacin</span>
+                        </div>
+
+                        <div class="countdown" style="color:#087f5b;">COMPLETE</div>
+
+                        <div class="progress-bar-track">
+                            <div class="progress-bar-fill green" style="width: 100%;"></div>
+                        </div>
+                        <p class="progress-label">100% complete</p>
+                    </div>
+
+                    <!-- Animal 3: Flagged -->
+                    <div class="animal-card">
+                        <div class="animal-card-top">
+                            <div>
+                                <h3>ANIMAL003</h3>
+                                <p class="species">Goat</p>
+                            </div>
+                            <span class="badge flagged">Flagged</span>
+                        </div>
+
+                        <div class="detail-row">
+                            <span>Drug</span>
+                            <span>Colistin</span>
+                        </div>
+
+                        <div class="countdown" style="color:#b3392f;">REVIEW NEEDED</div>
+
+                        <div class="progress-bar-track">
+                            <div class="progress-bar-fill" style="width: 40%; background:#b3392f;"></div>
+                        </div>
+                        <p class="progress-label">40% complete</p>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

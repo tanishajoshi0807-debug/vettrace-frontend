@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinarian Dashboard | Pashu Aarogya</title>
+    <!-- Note the ../ because this file lives inside /pages -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <!-- ============ SIDEBAR ============ -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Pashu Aarogya</h2>
+                <span>Veterinarian Portal</span>
+            </div>
+
+            <nav>
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Prescriptions</a>
+                <a href="#">Animals</a>
+                <a href="#">Drug Master</a>
+                <a href="#">Reports</a>
+                <a href="#">Profile</a>
+                <a href="../index.html" class="logout">Logout</a>
+            </nav>
+        </aside>
+
+        <!-- ============ MAIN CONTENT ============ -->
+        <main class="main-content">
+
+            <div class="topbar">
+                <div>
+                    <h1>Veterinarian Dashboard</h1>
+                    <p>Welcome back, Dr. Sharma</p>
+                </div>
+                <div class="user-chip">
+                    👨‍⚕️ Dr. Anil Sharma
+                </div>
+            </div>
+
+            <!-- ============ CREATE PRESCRIPTION FORM ============ -->
+            <section class="panel">
+                <h2>Create New Prescription</h2>
+                <p class="panel-subtitle">
+                    Fill in the treatment details below. The withdrawal period will be calculated automatically.
+                </p>
+
+                <!-- This message box will be used later to show success / error from the backend -->
+                <div class="status-message success" id="prescriptionStatus"></div>
+
+                <form id="prescriptionForm">
+                    <div class="form-grid">
+
+                        <div class="form-field">
+                            <label for="animal">Animal</label>
+                            <select id="animal" name="animal">
+                                <option value="">Select animal</option>
+                                <option value="ANIMAL001">ANIMAL001 - Cow</option>
+                                <option value="ANIMAL002">ANIMAL002 - Buffalo</option>
+                                <option value="ANIMAL003">ANIMAL003 - Goat</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="drug">Drug</label>
+                            <select id="drug" name="drug">
+                                <option value="">Select drug</option>
+                                <option value="Amoxicillin">Amoxicillin (Access)</option>
+                                <option value="Enrofloxacin">Enrofloxacin (Watch)</option>
+                                <option value="Colistin">Colistin (Reserve)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="diagnosis">Diagnosis</label>
+                            <input type="text" id="diagnosis" name="diagnosis" placeholder="e.g. Mastitis">
+                        </div>
+
+                        <div class="form-field">
+                            <label for="dosage">Dosage</label>
+                            <input type="text" id="dosage" name="dosage" placeholder="e.g. 10ml twice daily">
+                        </div>
+
+                        <div class="form-field">
+                            <label for="date">Date</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+
+                        <div class="form-field">
+                            <label>Estimated Withdrawal Period</label>
+                            <input type="text" value="Will be calculated by backend" disabled>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btn-primary">Create Prescription</button>
+                </form>
+            </section>
+
+            <!-- ============ RECENT PRESCRIPTIONS TABLE ============ -->
+            <section class="panel">
+                <h2>Recent Prescriptions</h2>
+                <p class="panel-subtitle">
+                    Showing sample data for now — this will be replaced with real backend data in the next step.
+                </p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Animal</th>
+                            <th>Drug</th>
+                            <th>Diagnosis</th>
+                            <th>Dosage</th>
+                            <th>Date</th>
+                            <th>Withdrawal Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="prescriptionsTableBody">
+                        <tr>
+                            <td>ANIMAL001</td>
+                            <td>Amoxicillin</td>
+                            <td>Mastitis</td>
+                            <td>10ml twice daily</td>
+                            <td>12 Aug 2026</td>
+                            <td><span class="badge withdrawal">Withdrawal Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>ANIMAL002</td>
+                            <td>Enrofloxacin</td>
+                            <td>Respiratory infection</td>
+                            <td>5ml once daily</td>
+                            <td>05 Aug 2026</td>
+                            <td><span class="badge compliant">Compliant</span></td>
+                        </tr>
+                        <tr>
+                            <td>ANIMAL003</td>
+                            <td>Colistin</td>
+                            <td>Bacterial gut infection</td>
+                            <td>3ml twice daily</td>
+                            <td>02 Aug 2026</td>
+                            <td><span class="badge flagged">Flagged</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- We'll connect this form to the real backend in the next step -->
+    <script>
+        document.getElementById('prescriptionForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('This form is not connected to the backend yet — that happens in the next step!');
+        });
+    </script>
+
+</body>
+</html>
