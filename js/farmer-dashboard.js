@@ -745,5 +745,40 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
 
     loadFarmerDashboard();
+        // ==========================================
+    // SIDEBAR NAVIGATION
+    // ==========================================
+
+    document.querySelectorAll(".sidebar nav a").forEach(link => {
+
+        link.addEventListener("click", function (e) {
+
+            const targetId = this.getAttribute("href");
+
+            if (
+                targetId &&
+                targetId.startsWith("#") &&
+                targetId !== "#"
+            ) {
+
+                e.preventDefault();
+
+                const target =
+                    document.querySelector(targetId);
+
+                if (target) {
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }
+
+            }
+
+        });
+
+    });
 
 });
