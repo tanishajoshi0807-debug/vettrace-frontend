@@ -1,131 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Collector Dashboard | Pashu Aarogya</title>
+
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboard.css">
+
+    <!-- QR Scanner Library -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
 </head>
+
 <body>
 
     <div class="dashboard">
 
-        <!-- ============ SIDEBAR ============ -->
+        <!-- ==================================================
+             SIDEBAR
+        ================================================== -->
+
         <aside class="sidebar">
+
             <div class="logo">
                 <h2>Pashu Aarogya</h2>
                 <span>Collector Portal</span>
             </div>
 
             <nav>
-                <a href="#" class="active">Verify Certificate</a>
-                <a href="#">Scan History</a>
-                <a href="#">Compliance Scans</a>
-                <a href="#">Profile</a>
-                <a href="../index.html" class="logout">Logout</a>
+
+                <a href="#" class="active">
+                    Verify Certificate
+                </a>
+
+                <a href="#">
+                    Scan History
+                </a>
+
+                <a href="#">
+                    Compliance Scans
+                </a>
+
+                <a href="#">
+                    Profile
+                </a>
+
+                <a href="../index.html" class="logout">
+                    Logout
+                </a>
+
             </nav>
+
         </aside>
 
-        <!-- ============ MAIN CONTENT ============ -->
+
+        <!-- ==================================================
+             MAIN CONTENT
+        ================================================== -->
+
         <main class="main-content">
 
+
+            <!-- ==================================================
+                 TOP BAR
+            ================================================== -->
+
             <div class="topbar">
+
                 <div>
-                    <h1>Verify Livestock Compliance</h1>
-                    <p>Scan or enter a certificate ID to check collection eligibility</p>
+
+                    <h1>
+                        Verify Livestock Compliance
+                    </h1>
+
+                    <p>
+                        Scan or enter a certificate ID to check collection eligibility
+                    </p>
+
                 </div>
+
                 <div class="user-chip">
                     🚚 Suresh (Collector)
                 </div>
+
             </div>
 
-            <!-- ============ VERIFY FORM ============ -->
+
+            <!-- ==================================================
+                 VERIFY CERTIFICATE PANEL
+            ================================================== -->
+
             <section class="panel">
-                <h2>Verify Certificate</h2>
+
+                <h2>
+                    Verify Certificate
+                </h2>
+
                 <p class="panel-subtitle">
-                    This is sample/demo data only — real verification will come from the backend in the next step.
+                    Enter a certificate ID or scan the QR code on the compliance certificate.
                 </p>
 
+
+                <!-- Certificate Input -->
+
                 <div class="form-grid">
+
                     <div class="form-field">
-                        <label for="certId">Certificate ID</label>
-                        <input type="text" id="certId" placeholder="e.g. CERT-D75AE058">
-                    </div>
-                </div>
 
-                <button type="button" class="btn-primary" onclick="showDemoResult()">Verify</button>
-                <button type="button" class="btn-secondary">Scan QR Code</button>
+                        <label for="certId">
+                            Certificate ID
+                        </label>
 
-                <!-- ============ VALID RESULT (sample) ============ -->
-                <div class="verify-result valid" id="demoResult">
-                    <div class="icon">✓</div>
-                    <div class="result-title">CERTIFICATE VALID</div>
-                    <p class="result-sub">This certificate has been digitally verified.</p>
+                        <input
+                            type="text"
+                            id="certId"
+                            placeholder="e.g. CERT-D75AE058"
+                        >
 
-                    <div class="result-details">
-                        <div class="detail-row"><span>Animal ID</span><span>ANIMAL002</span></div>
-                        <div class="detail-row"><span>Animal Type</span><span>Buffalo</span></div>
-                        <div class="detail-row"><span>Drug Used</span><span>Enrofloxacin</span></div>
-                        <div class="detail-row"><span>Certificate ID</span><span>CERT-D75AE058</span></div>
-                        <div class="detail-row"><span>Status</span><span>Compliant</span></div>
                     </div>
 
-                    <p class="success-banner" style="margin-top: 20px;">Collection Permitted</p>
                 </div>
+
+
+                <!-- Verify Button -->
+
+                <button
+                    type="button"
+                    class="btn-primary"
+                    id="verifyCertificateBtn">
+
+                    Verify
+
+                </button>
+
+
+                <!-- QR Button -->
+
+                <button
+                    type="button"
+                    class="btn-secondary"
+                    id="scanQrBtn">
+
+                    Scan QR Code
+
+                </button>
+
+
+                <!-- QR Scanner Container -->
+
+                <div
+                    id="qr-reader"
+                    style="
+                        display: none;
+                        width: 100%;
+                        max-width: 400px;
+                        margin-top: 20px;
+                    ">
+
+                </div>
+
+
+                <!-- ==================================================
+                     VERIFICATION RESULT
+                     
+                     IMPORTANT:
+                     This starts HIDDEN.
+                     JavaScript will fill it after verification.
+                ================================================== -->
+
+                <div
+                    class="verify-result"
+                    id="demoResult"
+                    style="display: none;">
+
+                </div>
+
             </section>
 
-            <!-- ============ RECENT SCAN HISTORY ============ -->
+
+
+            <!-- ==================================================
+                 RECENT SCAN HISTORY
+            ================================================== -->
+
             <section class="panel">
-                <h2>Recent Scan History</h2>
-                <p class="panel-subtitle">Sample data for now — will show real scans once connected to backend.</p>
+
+                <h2>
+                    Recent Scan History
+                </h2>
+
+                <p class="panel-subtitle">
+                    Recent certificate verification activity.
+                </p>
+
 
                 <table class="data-table">
+
                     <thead>
+
                         <tr>
-                            <th>Certificate ID</th>
-                            <th>Animal ID</th>
-                            <th>Date &amp; Time</th>
-                            <th>Status</th>
-                            <th>Action</th>
+
+                            <th>
+                                Certificate ID
+                            </th>
+
+                            <th>
+                                Animal ID
+                            </th>
+
+                            <th>
+                                Date &amp; Time
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
                         </tr>
+
                     </thead>
+
+
                     <tbody>
+
+
+                        <!-- Sample history row -->
+
                         <tr>
-                            <td>CERT-D75AE058</td>
-                            <td>ANIMAL002</td>
-                            <td>17 Aug 2026, 10:12 AM</td>
-                            <td><span class="badge valid">VALID</span></td>
-                            <td><a href="#">View</a></td>
+
+                            <td>
+                                CERT-D75AE058
+                            </td>
+
+                            <td>
+                                ANIMAL002
+                            </td>
+
+                            <td>
+                                17 Aug 2026, 10:12 AM
+                            </td>
+
+                            <td>
+
+                                <span class="badge valid">
+                                    VALID
+                                </span>
+
+                            </td>
+
+                            <td>
+                                <a href="#">
+                                    View
+                                </a>
+                            </td>
+
                         </tr>
+
+
+                        <!-- Sample history row -->
+
                         <tr>
-                            <td>CERT-A12BC901</td>
-                            <td>ANIMAL001</td>
-                            <td>16 Aug 2026, 4:45 PM</td>
-                            <td><span class="badge invalid">INVALID</span></td>
-                            <td><a href="#">View</a></td>
+
+                            <td>
+                                CERT-A12BC901
+                            </td>
+
+                            <td>
+                                ANIMAL001
+                            </td>
+
+                            <td>
+                                16 Aug 2026, 4:45 PM
+                            </td>
+
+                            <td>
+
+                                <span class="badge invalid">
+                                    INVALID
+                                </span>
+
+                            </td>
+
+                            <td>
+                                <a href="#">
+                                    View
+                                </a>
+                            </td>
+
                         </tr>
+
+
+                        <!-- Sample history row -->
+
                         <tr>
-                            <td>CERT-99XZ7712</td>
-                            <td>ANIMAL005</td>
-                            <td>16 Aug 2026, 9:03 AM</td>
-                            <td><span class="badge valid">VALID</span></td>
-                            <td><a href="#">View</a></td>
+
+                            <td>
+                                CERT-99XZ7712
+                            </td>
+
+                            <td>
+                                ANIMAL005
+                            </td>
+
+                            <td>
+                                16 Aug 2026, 9:03 AM
+                            </td>
+
+                            <td>
+
+                                <span class="badge valid">
+                                    VALID
+                                </span>
+
+                            </td>
+
+                            <td>
+                                <a href="#">
+                                    View
+                                </a>
+                            </td>
+
                         </tr>
+
+
                     </tbody>
+
                 </table>
+
             </section>
 
+
         </main>
+
     </div>
 
-    <script>
-        // This just shows/hides the sample result box for now.
-        // Real verification logic gets added in the backend-connection step.
-        function showDemoResult() {
-            document.getElementById('demoResult').style.display = 'block';
-        }
-    </script>
+
+    <!-- ==================================================
+         COLLECTOR JAVASCRIPT
+    ================================================== -->
+
+    <script src="../js/collector-dashboard.js"></script>
 
 </body>
+
 </html>

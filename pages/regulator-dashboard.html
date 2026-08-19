@@ -72,17 +72,17 @@
 
                 <div class="bar-chart">
                     <div class="bar-column">
-                        <span class="bar-value">78</span>
+                        <span class="bar-value" id="accessValue">0</span>
                         <div class="bar access" style="height: 100%;"></div>
                         <span class="bar-label">Access</span>
                     </div>
                     <div class="bar-column">
-                        <span class="bar-value">38</span>
+                       <span class="bar-value" id="watchValue">0</span>
                         <div class="bar watch" style="height: 49%;"></div>
                         <span class="bar-label">Watch</span>
                     </div>
                     <div class="bar-column">
-                        <span class="bar-value">12</span>
+                        <span class="bar-value" id="reserveValue">0</span>
                         <div class="bar reserve" style="height: 15%;"></div>
                         <span class="bar-label">Reserve</span>
                     </div>
@@ -97,14 +97,14 @@
                 <table class="data-table">
                     <thead>
                         <tr>
-                            <th>Animal</th>
-                            <th>Drug</th>
-                            <th>Category</th>
-                            <th>Date</th>
-                            <th>Status</th>
+                          <th>Animal ID</th>
+<th>AMU Record</th>
+<th>AWaRe Category</th>
+<th>Withdrawal</th>
+<th>Status</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="amuRecordsBody">
                         <tr>
                             <td>ANIMAL001</td>
                             <td>Amoxicillin</td>
@@ -132,6 +132,8 @@
 
         </main>
     </div>
+
+    <script src="../js/regulator-dashboard.js"></script>
 
 </body>
 </html>

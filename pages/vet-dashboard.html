@@ -68,12 +68,10 @@
 
                         <div class="form-field">
                             <label for="drug">Drug</label>
-                            <select id="drug" name="drug">
-                                <option value="">Select drug</option>
-                                <option value="Amoxicillin">Amoxicillin (Access)</option>
-                                <option value="Enrofloxacin">Enrofloxacin (Watch)</option>
-                                <option value="Colistin">Colistin (Reserve)</option>
-                            </select>
+                          <select id="drug" name="drug">
+    <option value="">Select drug</option>
+    <option value="DRUG001">Amoxicillin (Access)</option>
+</select>
                         </div>
 
                         <div class="form-field">
@@ -90,11 +88,15 @@
                             <label for="date">Date</label>
                             <input type="date" id="date" name="date">
                         </div>
-
-                        <div class="form-field">
-                            <label>Estimated Withdrawal Period</label>
-                            <input type="text" value="Will be calculated by backend" disabled>
-                        </div>
+<div class="form-field">
+    <label>Estimated Withdrawal Period</label>
+    <input
+        type="text"
+        id="withdrawalPeriod"
+        value="Select an animal"
+        disabled
+    >
+</div>
 
                     </div>
 
@@ -153,12 +155,7 @@
     </div>
 
     <!-- We'll connect this form to the real backend in the next step -->
-    <script>
-        document.getElementById('prescriptionForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('This form is not connected to the backend yet — that happens in the next step!');
-        });
-    </script>
+  <script src="../js/vet-dashboard.js"></script>
 
 </body>
 </html>
